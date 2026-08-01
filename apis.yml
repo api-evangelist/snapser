@@ -1,22 +1,105 @@
 aid: snapser
 name: Snapser
-description: Snapser is a company surfaced as a portfolio company of a16z and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Snapser is a plug-and-play, modular backend-as-a-service platform for game
+  studios and app developers. Instead of building infrastructure from scratch,
+  teams assemble a backend from modular "Snaps" — managed microservices such as
+  Authentication, Profiles, Storage, Leaderboards, Inventory, Chat, Social Graph,
+  Matchmaking, Analytics, and an Event Bus — and deploy them together as a
+  "Snapend" cluster fronted by its own API gateway. Developers can bring their
+  own custom code (BYOSnap), game servers (BYOGS), and local workstations
+  (BYOWS), then generate typed client SDKs and gRPC protobufs for a wide range of
+  engines and languages including Unity, Unreal, Godot, Cocos, Roblox, iOS,
+  Android, Flutter, C#, C++, Go, Python, TypeScript, Rust, and more. The snapctl
+  CLI drives the entire build-and-deploy workflow. Snapser is backed by a16z.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://snapser.com/images/snapser-secondary-logo.png
 url: https://raw.githubusercontent.com/api-evangelist/snapser/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - a16z
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profile
+x-tier-reason: enriched-from-public-surface
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
+- Game Development
+- Backend as a Service
+- Game Backend
+- Authentication
+- Leaderboards
+- Multiplayer
+- Microservices
+- SDK Generation
+- Developer Tools
 apis: []
+common:
+- type: Website
+  url: https://snapser.com
+- type: Website
+  name: Documentation Host
+  url: https://docs.snapser.com
+- type: DeveloperPortal
+  url: https://snapser.com
+- type: Documentation
+  url: https://docs.snapser.com/docs
+- type: APIReference
+  name: API Explorer
+  url: https://docs.snapser.com/docs/snapend/tools/api-explorer
+- type: GettingStarted
+  url: https://docs.snapser.com/docs/overview
+- type: SignUp
+  url: https://snapser.com/register
+- type: Login
+  url: https://snapser.com/login
+- type: Pricing
+  url: https://snapser.com/pricing
+- type: Blog
+  url: https://snapser.com/resources
+- type: GitHubOrganization
+  url: https://github.com/snapser-community
+- type: Support
+  name: Community Discord
+  url: https://discord.gg/snapser
+- type: Authentication
+  url: authentication/snapser-authentication.yml
+- type: Packages
+  url: packages/snapser-packages.yml
+- type: SDKs
+  url: packages/snapser-packages.yml
+- type: CLI
+  url: cli/snapser-cli.yml
+- type: Conventions
+  url: conventions/snapser-conventions.yml
+- type: ChangeLog
+  url: changelog/snapser-changelog.yml
+- type: Conformance
+  url: conformance/snapser-conformance.yml
+- type: Lifecycle
+  url: lifecycle/snapser-lifecycle.yml
+- type: DomainSecurity
+  url: security/snapser-domain-security.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 9
+  pass: local-v1

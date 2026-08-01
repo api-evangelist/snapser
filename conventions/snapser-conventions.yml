@@ -1,0 +1,44 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.snapser.com/docs/overview
+docs: https://docs.snapser.com/docs
+notes: >-
+  Cross-cutting platform semantics for Snapser, captured from the public docs.
+  Snapser is not a single REST API but a composable platform: developers select
+  Snaps and deploy a Snapend cluster with its own gateway, then consume it via
+  generated SDKs. Many low-level request/response conventions (pagination,
+  rate-limit signaling, idempotency headers, error envelope) are not documented
+  on the public surface — deeper docs are login-gated — so they are recorded as
+  "not-documented-publicly" rather than guessed.
+architecture:
+  model: modular microservices ("Snaps") composed into a deployed "Snapend" cluster
+  gateway: each Snapend is fronted by its own API gateway URL (per-customer, not a shared public host)
+  extensibility:
+  - BYOSnap (bring your own custom code Snap)
+  - BYOGS (bring your own game server)
+  - BYOWS (bring your own workstation for local dev)
+  environments: [Dev, Stage, Prod]
+consumption:
+  primary: generated typed SDKs (per-Snapend) across many engines/languages
+  realtime: WebSocket support (https://docs.snapser.com/docs/snapend/web-socket)
+  eventing: Event Bus Snap for inter-Snap pub/sub (https://docs.snapser.com/docs/infra/snaps/eventbus)
+  transport: REST over the Snapend gateway; gRPC protobufs generated alongside SDKs
+authentication:
+  developer_plane: personal API key (snapctl / dashboard)
+  application_plane: Auth Snap connectors issue session tokens
+  ref: authentication/snapser-authentication.yml
+idempotency:
+  status: not-documented-publicly
+  note: >-
+    The snapctl manifest "sync" command is documented as idempotent, but no
+    API-level idempotency-key contract was found on the public surface. Not
+    asserted to avoid fabrication.
+pagination:
+  status: not-documented-publicly
+rate_limits:
+  status: not-documented-publicly
+versioning:
+  status: partial
+  note: Snapend environments (Dev/Stage/Prod) and per-BYOSnap versions; no public API versioning policy found.
+error_envelope:
+  status: not-documented-publicly

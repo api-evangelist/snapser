@@ -1,0 +1,65 @@
+generated: '2026-07-21'
+method: searched
+source: https://pypi.org/project/snapctl/
+docs: https://docs.snapser.com/docs/resources/cli
+name: snapctl
+description: >-
+  snapctl is Snapser's first-party CLI for MacOS, Linux, and Windows. It is the
+  primary way game studios integrate Snapser into their build pipelines —
+  publishing custom code (BYOSnap), game servers (BYOGS), managing Snapend
+  clusters and manifests, secrets, and downloading generated SDKs and protobufs.
+version: 1.11.0
+requires:
+  python: '>=3.10,<3.15'
+  docker: required for build/publish (image push to the Snapser registry)
+install:
+  pip: pip install --user snapctl
+  pipx: pipx install snapctl
+  upgrade_pip: pip3 install --user snapctl --upgrade
+  upgrade_pipx: pipx upgrade snapctl
+auth:
+  method: personal API key (up to 3 per user account)
+  precedence: [command-line-arg, environment-variable, config-file]
+  cli_arg: --api-key <your_key>
+  env_var: SNAPSER_API_KEY
+  config_file: ~/.snapser/config
+  profiles: supports multiple named profiles via --profile / SNAPSER_PROFILE
+  validate: snapctl validate
+command_groups:
+- group: snaps
+  description: Enumerate and inspect the catalog of available Snaps.
+  commands: [enumerate]
+- group: byosnap
+  description: Bring Your Own Snap — build, version, and deploy custom code as a Snap.
+  commands: [create, generate-profile, validate-profile, build, push, publish, publish-image, publish-version, next-version, direct-deploy, sync, upload-docs]
+- group: byows
+  description: Bring Your Own Workstation — forward Snapend traffic to a local machine for development.
+  commands: [attach, detach]
+- group: byogs
+  description: Bring Your Own Game Server — build and deploy a custom game server.
+  commands: [build, push, publish, sync]
+- group: application
+  description: Manage applications.
+  commands: [create, enumerate]
+- group: secret
+  description: Manage tagged secrets mounted into Snaps.
+  commands: [create, get, reveal, enumerate, delete]
+- group: snapend-manifest
+  description: Create and reconcile Snapend manifests (idempotent, destructive sync).
+  commands: [create, sync, update, upgrade]
+- group: snapend
+  description: Manage a Snapend cluster and download its generated artifacts.
+  commands: [create, clone, apply, update, state, download]
+- group: generate
+  description: Generate credentials and other resources.
+  commands: [credentials]
+- group: snap-config
+  description: Read Snap configuration.
+  commands: [get-config]
+key_flows:
+- name: Download generated SDKs and protos
+  command: snapctl snapend download --category sdk|protos|snapend-manifest --format <fmt> --type <type>
+- name: Publish custom code
+  command: snapctl byosnap generate-profile ... then snapctl byosnap publish ...
+- name: Local development against a Snapend
+  command: snapctl byows attach ... / snapctl byows detach ...

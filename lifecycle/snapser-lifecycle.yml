@@ -1,0 +1,22 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.snapser.com/docs/overview
+notes: >-
+  Lifecycle captured from the public docs surface. No public status page,
+  deprecation policy, or SLA document was verified (candidate status subdomains
+  resolved to generic vendor landing pages, not a Snapser status page), so no
+  StatusPage or Deprecation pointers are emitted — only the environment/version
+  model that is documented.
+versioning:
+  scheme: environment-and-artifact
+  environments: [Dev, Stage, Prod]
+  note: BYOSnap code carries its own versions (snapctl byosnap next-version / publish-version).
+deprecation:
+  policy_url: null
+  status: not-documented-publicly
+sla:
+  url: null
+  status: not-documented-publicly
+status_page:
+  url: null
+  status: not-verified

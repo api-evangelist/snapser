@@ -1,0 +1,26 @@
+generated: '2026-07-21'
+method: searched
+host: https://snapser.com
+notes: >-
+  Probed the standard /.well-known/ discovery surface on the public hosts. None
+  returned a usable document. api.snapser.io / gateway.snapser.io do not resolve
+  publicly (per-Snapend gateways). No document saved; this file records the
+  probe result. No WellKnown pointer emitted since nothing was found.
+documents:
+- path: /.well-known/security.txt
+  host: https://snapser.com
+  status: 404
+- path: /.well-known/openid-configuration
+  host: https://api.snapser.io
+  status: 0
+  detail: host does not resolve
+- path: /.well-known/oauth-authorization-server
+  host: https://api.snapser.io
+  status: 0
+  detail: host does not resolve
+- path: /.well-known/api-catalog
+  host: https://snapser.com
+  status: 404
+- path: /.well-known/ai-plugin.json
+  host: https://snapser.com
+  status: 404

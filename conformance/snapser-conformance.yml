@@ -1,0 +1,26 @@
+generated: '2026-07-21'
+method: derived
+source: https://docs.snapser.com/docs/overview
+notes: >-
+  Standards conformance derived from the public documentation surface (feature
+  descriptions), not from a parsed OpenAPI. No published compliance certification
+  program (SOC 2 / ISO 27001 / etc) was found on the public surface, so no
+  Compliance pointer is emitted.
+standards:
+- id: oauth2
+  conforms: true
+  evidence: >-
+    Authentication Snap integrates OAuth/identity connectors (Apple, Google,
+    Discord, Steam, Xbox) to authenticate end users.
+- id: grpc
+  conforms: true
+  evidence: gRPC protobufs (messages + services) are generated per Snapend via snapctl.
+- id: websocket
+  conforms: true
+  evidence: Snapend WebSocket support documented at docs.snapser.com/docs/snapend/web-socket.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: error envelope not documented on the public surface
+- id: openapi
+  conforms: unknown
+  evidence: SDKs/API Explorer suggest a spec-driven backend, but no public OpenAPI document is exposed (per-Snapend).

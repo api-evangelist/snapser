@@ -1,0 +1,42 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.snapser.com/docs/infra/snaps/auth/connectors
+docs:
+- https://docs.snapser.com/docs/infra/snaps/auth/connectors
+- https://docs.snapser.com/docs/infra/snaps/auth/config-tools/api-key-manager
+notes: >-
+  Snapser has no single public OpenAPI to derive securitySchemes from — each
+  customer deploys a Snapend with its own API gateway. This profile is captured
+  from the public documentation surface. Two distinct auth planes exist: (1) the
+  developer/management plane driven by a personal API key (used by the snapctl
+  CLI and dashboard); and (2) the runtime application plane where end users of a
+  game/app authenticate through the Authentication Snap's connectors and receive
+  a session token used against the Snapend gateway.
+summary:
+  types: [apiKey, oauth2]
+  planes: [developer-management, application-runtime]
+schemes:
+- name: personalApiKey
+  plane: developer-management
+  type: apiKey
+  used_by: [snapctl CLI, dashboard]
+  delivery:
+  - command-line arg --api-key
+  - env var SNAPSER_API_KEY
+  - config file ~/.snapser/config
+  limit: up to 3 API keys per user account
+- name: authSnapConnectors
+  plane: application-runtime
+  type: oauth2/identity-provider
+  description: >-
+    The Authentication Snap issues a Snapser session token to end users after
+    verifying an identity connector. The token is then presented to the Snapend
+    gateway on subsequent API calls.
+  connectors:
+  - anon
+  - apple
+  - discord
+  - email
+  - google
+  - steam
+  - xbox

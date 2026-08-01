@@ -1,0 +1,32 @@
+generated: '2026-07-21'
+method: searched
+source: https://pypi.org/project/snapctl/
+scope: snapctl CLI (the platform's dated developer changelog is login-gated; the
+  public, dated release history available is the snapctl CLI on PyPI)
+scheme: semver
+current_version: 1.11.0
+entries:
+- version: 1.11.0
+  date: '2026-06-24'
+- version: 1.10.0
+  date: '2026-06-02'
+- version: 1.9.0
+  date: '2026-05-13'
+- version: 1.8.0
+  date: '2026-04-15'
+- version: 1.7.2
+  date: '2026-03-30'
+- version: 1.7.1
+  date: '2026-03-24'
+- version: 1.7.0
+  date: '2026-03-22'
+- version: 1.6.2
+  date: '2026-03-17'
+- version: 1.6.1
+  date: '2026-02-27'
+- version: 1.6.0
+  date: '2026-02-23'
+- version: 1.5.0
+  date: '2026-02-02'
+- version: 1.4.1
+  date: '2026-01-22'
