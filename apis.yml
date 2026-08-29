@@ -12,6 +12,17 @@ description: >-
   engines and languages including Unity, Unreal, Godot, Cocos, Roblox, iOS,
   Android, Flutter, C#, C++, Go, Python, TypeScript, Rust, and more. The snapctl
   CLI drives the entire build-and-deploy workflow. Snapser is backed by a16z.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
