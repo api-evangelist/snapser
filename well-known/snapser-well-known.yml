@@ -1,26 +1,24 @@
 generated: '2026-07-21'
 method: searched
 host: https://snapser.com
-notes: >-
-  Probed the standard /.well-known/ discovery surface on the public hosts. None
-  returned a usable document. api.snapser.io / gateway.snapser.io do not resolve
-  publicly (per-Snapend gateways). No document saved; this file records the
-  probe result. No WellKnown pointer emitted since nothing was found.
-documents:
-- path: /.well-known/security.txt
-  host: https://snapser.com
-  status: 404
-- path: /.well-known/openid-configuration
-  host: https://api.snapser.io
-  status: 0
-  detail: host does not resolve
-- path: /.well-known/oauth-authorization-server
-  host: https://api.snapser.io
-  status: 0
-  detail: host does not resolve
-- path: /.well-known/api-catalog
-  host: https://snapser.com
-  status: 404
-- path: /.well-known/ai-plugin.json
-  host: https://snapser.com
-  status: 404
+notes: Probed the standard /.well-known/ discovery surface on the public hosts. None returned a usable
+  document. api.snapser.io / gateway.snapser.io do not resolve publicly (per-Snapend gateways). No document
+  saved; this file records the probe result. No WellKnown pointer emitted since nothing was found.
+hosts:
+- host: https://snapser.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 0
+  - path: /.well-known/oauth-authorization-server
+    status: 0
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+x-shape-fix:
+  converted: '2026-08-20'
+  from: documents
+  note: Rewritten into hosts[] -> documents[], the only shape well_known_docs() in score.rb reads. A served
+    .well-known surface recorded in any other shape scores as absent.
